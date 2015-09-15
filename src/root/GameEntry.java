@@ -2,18 +2,17 @@ package root;
 import java.util.Comparator;
 
 /**
- * <code>GameEntry</code> is a generic node used in <code>Scores</code> to track "high-score" entries in video games.
+ * <code>GameEntry</code> is the custom node used in <code>Scores</code> to track "high-score" entries in video games.
  * @author Joseph Abad
  */
 public class GameEntry implements Comparable<GameEntry>{
 	private String playername;
 	private int score;
 	
-	
 	/**
-	 * Creates a <code>GameEntry</code> object.
-	 * @param playername A string for the player name
-	 * @param score	the high-score for this entry
+	 * Creates a new <code>GameEntry</code> object.
+	 * @param playername a string for the player name
+	 * @param score	the high-score value for this entry
 	 */
 	public GameEntry(String playername, int score) {
 		this.playername = playername;

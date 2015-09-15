@@ -2,7 +2,8 @@ package root;
 import java.util.Arrays;
 
 /**
- * <code>Scores</code> is an array-based data-structure used to store <code>GameEntry</code> objects and track high-scores in video games.
+ * <code>Scores</code> is a data-structure used to track high-scores in video games. It maintains 
+ * <code>GameEntry</code> objects in descending order.
  * @author Joseph Abad
  */
 public class Scores {
@@ -12,7 +13,7 @@ public class Scores {
 	
 	/**
 	 * Creates a <code>Scores</code> object.
-	 * @param maxentries The max capacity for this score-board. This number is the maximum amount of scores that can be stored. 
+	 * @param maxentries The max capacity for this score-board. This number is the maximum amount of scores that can ever be stored. 
 	 */
 	public Scores(int maxentries) {
 		this.MAXENTRIES = maxentries;
@@ -26,7 +27,7 @@ public class Scores {
 	
 	/**
 	 * Adds a <code>GameEntry</code> object to scores. If the <code>GameEntry</code> is not a high-score, it
-	 * will not be added. The scores array is auto-sorted in descending order.
+	 * will not be added. The scores array is auto-sorted in descending order during addition.
 	 * @param e the new <code>GameEntry</code> object to be added
 	 */
 	public void add(GameEntry e) {
@@ -51,8 +52,8 @@ public class Scores {
 	}
 
 	/**
-	 * Removes an object from scores, at the given index. If the index is larger than the current size, negative, or
-	 * null, no changes will occur.
+	 * Removes an object from scores, at the given index. No changes occur if the index is: larger than the 
+	 * current size, negative, or null.
 	 * @param index the index at which to remove the <code>GameEntry</code> object from.
 	 */
 	public void remove(int index) {
@@ -73,9 +74,9 @@ public class Scores {
 	}
 	
 	/**
-	 * Removes a <code>GameEntry</code> object from scores, if the given reference exists. If the object does not exist 
-	 * or is null, no changes will occur. If there are multiple copies of an object in <code>Scores</code>, the first 
-	 * one will be removed.
+	 * Removes a <code>GameEntry</code> object from scores, if the given reference exists. No changes will 
+	 * occur if the reference is null or does not exist. If there are multiple references to an object in 
+	 * <code>Scores</code>, the first one will be removed.
 	 * @param e a reference to a <code>GameEntry</code> object that should be removed.
 	 */
 	public void remove(GameEntry e) {
@@ -120,7 +121,7 @@ public class Scores {
 	}
 	
 	/**
-	 * Empties all the high-scores maintained by <code>Scores</code>.
+	 * Empties all the <code>GameEntry</code> objects maintained by <code>Scores</code>.
 	 */
 	public void clearAll() {
 		size = 0;
@@ -134,22 +135,25 @@ public class Scores {
 	 */
 	
 	/**
-	 * Returns the number of high-scores in <code>Scores</code>.
-	 * @return the number of high-scores
-	 */
-	public int getSize() {
-		return this.size;
-	}
-	/**
-	 * Returns an array containing all the high-scores in <code>Scores</code>. The array is sorted in descending order.
+	 * Returns an array containing all the high-scores in <code>Scores</code>. The array is sorted 
+	 * in descending order.
 	 * @return an array with all the high-scores
 	 */
 	public GameEntry[] getScores() {
 		GameEntry[] tempScores = scores;
 		return tempScores;
 	}
+	
 	/**
-	 * The maximum capacity for high-scores. This integer is statically defined at object construction.
+	 * Returns the number of high-scores in <code>Scores</code>.
+	 * @return the number of high-scores
+	 */
+	public int getSize() {
+		return this.size;
+	}
+
+	/**
+	 * Returns the maximum capacity for high-scores. This integer is statically defined at object construction.
 	 * @return the capacity for high-scores in <code>Scores</code>
 	 */
 	public int getSizeCapacity() {
